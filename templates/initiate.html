@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport", content="width=device-width, initial-scale=1">
+        <meta charset="utf-8">
+        <link rel="stylesheet" href=" {{url_for('static', filename='styles.css')}}">
+        <link rel="icon" type="image/png" href=" {{url_for('static', filename='Youtube-Logo-PNG-removebg-preview.png')}}">
+        <title>Youtube Downloader</title>
+    </head>
+    <body>
+        <h1>Youtube Downloader</h1>
+        {%with messages = get_flashed_messages(with_categories=true) %}
+        {%if messages %}
+            {%for category, message in messages %}
+                {%if category == 'thumbnail' %}
+                    <img id="thumbnail" alt="Preview Image" src="{{message}}">
+                {% endif %}
+            {% endfor %}
+        {% endif %}
+        {% endwith %}
+        
+        {%with messages = get_flashed_messages(with_categories=true) %}
+        {%if messages %}
+            {%for category, message in messages %}
+                {%if category == 'category1' %}
+                    <p id="title"> {{message}}  </p>
+                {% endif %}
+            {% endfor %}
+        {% endif %}
+        {% endwith %}
+        <hr>
+        {%with messages = get_flashed_messages(with_categories=true) %}
+        {%if messages %}
+            {%for category, message in messages %}
+                {%if category == 'category2' %}
+                    <p> {{message}}  </p>
+                {% endif %}
+            {% endfor %}
+        {% endif %}
+        {% endwith %}
+        <br>
+        <form action="download" method="post">
+            <label for="itag">Enter itag of video you want: 
+                <input class='itag' type="text" name="itag" placeholder="Itag" required/>
+            </label>
+            <br>
+            <input class="btn"  type="submit" name="Submit" value="Download">
+        </form>
+    </body>
+</html>

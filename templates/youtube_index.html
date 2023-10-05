@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport", content="width=device-width, initial-scale=1">
+        <meta charset="utf-8">
+        <link rel="stylesheet" href=" {{url_for('static', filename='styles.css')}}">
+        <link rel="icon" type="image/png" href=" {{url_for('static', filename='Youtube-Logo-PNG-removebg-preview.png')}}">
+        <title>Youtube Downloader</title>
+    </head>
+    <body>
+        <h1>Youtube Downloader</h1>
+        <img alt="LOGO" src="{{url_for('static', filename='Youtube-Logo-PNG-removebg-preview.png')}}">
+
+        <form action="view" method="post">
+            <label for="link">Link: 
+                <input type="text" name="link" placeholder="Enter your link" required/>
+            </label>
+            <br>
+            <label for="res">Res :
+                <input type="text" name="res" placeholder="Enter your res" required/>
+            </label>
+            <br>
+            <input class="btn" type="submit" value="View"/>
+        </form>
+    </body>   
+</html>
